@@ -25,4 +25,10 @@
         android:layout_height="wrap_content"
         android:text="@string/partager" />
 
+    <Button
+        android:id="@+id/btn_navigate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lancer_un_itin_raire" />
+
 </LinearLayout>
