@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -46,14 +47,12 @@ class MainActivity : AppCompatActivity() {
 
         btnNavigate.setOnClickListener {
             // Coordonnées des Papeteries Gobelins
-            val googleMapLocation = Uri.parse("google.navigation:q=48.826373,2.362527")
+            val googleMapLocation = Uri.parse("geo:48.826373,2.362527")
             val mapIntent = Intent(Intent.ACTION_VIEW, googleMapLocation)
 
             //Intent est configuré pour utiliser Google Maps
             mapIntent.setPackage("com.google.android.apps.maps")
-            if (mapIntent.resolveActivity(packageManager) != null) {
-                startActivity(mapIntent)
-            }
+            startActivity(mapIntent)
         }
     }
 }

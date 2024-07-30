@@ -23,8 +23,12 @@ class ComputeActivity : AppCompatActivity() {
         btnCompute.setOnClickListener {
             // if the text cannot be converted to a Double, toDoubleOrNull() will return null
             // the ?: (elvis) operator will provide a default value of 0.0.
-            var operand1 = edtFirstOperand.text.toString().toDoubleOrNull() ?: 0.0
-            var operand2 = edtSecondOperand.text.toString().toDoubleOrNull() ?: 0.0
+            var operand1 = edtFirstOperand.text.toString().toDoubleOrNull() ?: return@setOnClickListener run {
+                edtFirstOperand.error = "type a valid number!"
+            }
+            var operand2 = edtSecondOperand.text.toString().toDoubleOrNull() ?: return@setOnClickListener run {
+                edtSecondOperand.error = "type a valid number!"
+            }
             var sum =  operand1 +  operand2
 
             //tvResult.text = sum.toString()
